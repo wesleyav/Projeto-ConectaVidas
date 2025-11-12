@@ -12,13 +12,13 @@ class Database
     public static function getConnection()
     {
         if (self::$pdo === null) {
-            $host = '127.0.0.1';
-            $db   = 'conectavidas';
-            $user = 'root';
-            $pass = 'asdf';
+            $host = getenv('MYSQLHOST');
+            $port = getenv('MYSQLPORT');
+            $db = getenv('MYSQL_DATABASE');
+            $user = getenv('MYSQLUSER');
+            $pass = getenv('MYSQLPASSWORD');
             $charset = 'utf8mb4';
-
-            $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+            $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
