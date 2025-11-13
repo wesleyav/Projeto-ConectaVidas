@@ -35,4 +35,6 @@ COPY . /app
 EXPOSE 8080
 
 # Comando default para rodar o servidor PHP embutido na pasta public na porta que o Railway passar
-CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-8080} -t public"]
+#CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-8080} -t public"]
+CMD php -S 0.0.0.0:${PORT:-8080} -t public
+
